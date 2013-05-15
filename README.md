@@ -1,2 +1,3 @@
-easyredmine
+Easy Redmine
+https://www.easyredmine.com
 ===========
