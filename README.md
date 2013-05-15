@@ -1,9 +1,7 @@
 # Easy Redmine
 
 Easy Redmine - plugin to Redmine (http://www.redmine.org)
-
 Copyright (C) 2008-2013  Easy Software, s.r.o.
-
 https://www.easyredmine.com
 
 
@@ -58,7 +56,5 @@ Easy Redmine is tested only on MySQL server.
 ## References
 
 Changelog is on: http://www.easyredmine.com/news
-
 Feaures are on: http://www.easyredmine.com/features
-
 Support is on: http://www.easyredmine.com/support
