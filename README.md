@@ -1,13 +1,16 @@
 # Easy Redmine
 
 Easy Redmine - plugin to Redmine (http://www.redmine.org)
+
 Copyright (C) 2008-2013  Easy Software, s.r.o.
+
 https://www.easyredmine.com
 
 
 ## Requirements
 
 Same as Redmine 2.3.1. See [redmine_root]/doc/INSTALL
+
 Only Ruby 1.8.7 (will be deprecated soon) or 1.9.3 are supported.
 
 Installing Redmine and Easy Redmine to virtual directory like http://localhost/redmine is not working.
@@ -55,5 +58,7 @@ Easy Redmine is tested only on MySQL server.
 ## References
 
 Changelog is on: http://www.easyredmine.com/news
+
 Feaures are on: http://www.easyredmine.com/features
+
 Support is on: http://www.easyredmine.com/support
