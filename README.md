@@ -1,6 +1,6 @@
 # Easy Redmine
 
-Easy Redmine - plugin to Redmine (http://www.redmine.org)
+Easy Redmine - plugin to Redmine (http://www.redmine.org)  
 Copyright (C) 2008-2013  Easy Software, s.r.o.
 https://www.easyredmine.com
 
