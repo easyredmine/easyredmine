@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Easy Redmine : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Easy Redmine</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/easyredmine/easyredmine">View on GitHub</a>
+
+          <h1 id="project_title">Easy Redmine</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/easyredmine/easyredmine/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/easyredmine/easyredmine/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Easy Redmine</h1>
+
+<p>Easy Redmine - plugin to Redmine (<a href="http://www.redmine.org">http://www.redmine.org</a>)<br>
+Copyright (C) 2008-2013  Easy Software, s.r.o.<br><a href="https://www.easyredmine.com">https://www.easyredmine.com</a></p>
+
+<h2>Requirements</h2>
+
+<p>Same as Redmine 2.3.1. See [redmine_root]/doc/INSTALL</p>
+
+<p>Only Ruby 1.8.7 (will be deprecated soon) or 1.9.3 are supported.</p>
+
+<p>Installing Redmine and Easy Redmine to virtual directory like http://localhost/redmine is not working.</p>
+
+<h2>Installation</h2>
+
+<ol>
+<li><p>Make sure your Redmine 2.3.1 is working.<br>
+For more details visit <a href="http://www.redmine.org/projects/redmine/wiki/Installation_Guide">http://www.redmine.org/projects/redmine/wiki/Installation_Guide</a>.</p></li>
+<li><p>Backup your Redmine database and folder if something make wrong.</p></li>
+<li><p>Extract zip package to the Redmine plugins directory ([redmine_root]/plugins).<br>
+The directory structure will look like:<br>
+ [redmine_root]/plugins/easyproject/easy_helpers/*<br>
+ [redmine_root]/plugins/easyproject/easy_plugins/easy_extensions/*<br>
+ [redmine_root]/plugins/easyproject/easy_plugins/easy_redmine/*<br>
+ [redmine_root]/plugins/easyproject/easy_plugins/*  </p></li>
+<li>
+<p>More gems are required. Under the application main directory run:<br><strong>bundle install --without development test</strong></p>
+
+<p>If ImageMagick is not installed on your system, you should skip the installation
+of the rmagick gem using:<br><strong>bundle install --without development test rmagick</strong></p>
+</li>
+<li><p>Under the application main directory run (if you are using bitnami write 'sudo' before 'bundle'):<br><strong>bundle exec rake easyproject:install RAILS_ENV=production</strong></p></li>
+<li><p>If you are migrating from older Ruby version &lt; 1.9 (e.g. 1.8.7) to Ruby version &gt;= 1.9 you have to run:<br><strong>bundle exec rake easyproject:service_tasks:migrate_to_new_ruby RAILS_ENV=production</strong></p></li>
+<li><p>Start your Redmine application server. E.g. under the application main directory run:<br><strong>bundle exec ruby script/rails server -e production</strong></p></li>
+<li><p>You should create a maintanance task to CRON (on Linux) or Scheduled Tasks (on Windows) that
+will be running every 5-15 minutes. This one task aggregates all required tasks such as mail receiving,
+alerts evaluation etc. You should set up required parameters via administration -&gt; scheduled tasks.
+Do not run this task under root, use same user that is used for web server.:
+ <strong>bundle exec rake easyproject:scheduler:run_tasks RAILS_ENV=production</strong></p></li>
+</ol><h2>Notes</h2>
+
+<p>Easy Redmine is tested only on MySQL server.</p>
+
+<h2>References</h2>
+
+<p>Changelog is on: <a href="http://www.easyredmine.com/news">http://www.easyredmine.com/news</a><br>
+Feaures are on: <a href="http://www.easyredmine.com/features">http://www.easyredmine.com/features</a><br>
+Support is on: <a href="http://www.easyredmine.com/support">http://www.easyredmine.com/support</a>  </p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Easy Redmine maintained by <a href="https://github.com/easyredmine">easyredmine</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
