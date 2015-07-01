@@ -1,60 +1,81 @@
 # Easy Redmine
 
-Easy Redmine - plugin to Redmine (http://www.redmine.org)  
-Copyright (C) 2008-2013  Easy Software, s.r.o.  
+Easy Redmine - plugin to Redmine (http://www.redmine.org)
+Copyright (C) 2008-2015  Easy Software, s.r.o.
 https://www.easyredmine.com
 
 
 ## Requirements
 
-Same as Redmine 2.3.1. See [redmine_root]/doc/INSTALL
+Same as Redmine 3.0.3. See [redmine_root]/doc/INSTALL
+Only Ruby 1.9.3 and higher is supported. (Ruby version < 2.1 will be dropped soon)
 
-Only Ruby 1.8.7 (will be deprecated soon) or 1.9.3 are supported.
+## Manual installation
 
-Installing Redmine and Easy Redmine to virtual directory like http://localhost/redmine is not working.
-
-## Installation
-
-1. Make sure your Redmine 2.3.1 is working.  
+1. Make sure your Redmine 3.0.3. is working.
    For more details visit http://www.redmine.org/projects/redmine/wiki/Installation_Guide.
 
-2. Backup your Redmine database and folder if something make wrong.
+2. Backup your Redmine database and folder if something make wrong. Do not make backup into [redmine] directory! You have to copy it outside!
 
-3. Extract zip package to the Redmine plugins directory ([redmine_root]/plugins).  
-   The directory structure will look like:  
-     [redmine_root]/plugins/easyproject/easy_helpers/*  
-     [redmine_root]/plugins/easyproject/easy_plugins/easy_extensions/*  
-     [redmine_root]/plugins/easyproject/easy_plugins/easy_redmine/*  
-     [redmine_root]/plugins/easyproject/easy_plugins/*  
+3. Extract zip package to the Redmine plugins directory ([redmine_root]/plugins).
+   The directory structure will look like:
+     [redmine_root]/plugins/easyproject/easy_helpers/*
+     [redmine_root]/plugins/easyproject/easy_plugins/easy_extensions/*
+     [redmine_root]/plugins/easyproject/easy_plugins/easy_redmine/*
+     [redmine_root]/plugins/easyproject/easy_plugins/*
 
-4. More gems are required. Under the application main directory run:  
-     **bundle install --without development test**
-   
+4. More gems are required. Under the application main directory run:
+     bundle install --without development test
+
    If ImageMagick is not installed on your system, you should skip the installation
-   of the rmagick gem using:  
-     **bundle install --without development test rmagick**
+   of the rmagick gem using:
+     bundle install --without development test rmagick
 
-5. Under the application main directory run (if you are using bitnami write 'sudo' before 'bundle'):  
-     **bundle exec rake easyproject:install RAILS_ENV=production**
-   
-6. If you are migrating from older Ruby version < 1.9 (e.g. 1.8.7) to Ruby version >= 1.9 you have to run:  
-     **bundle exec rake easyproject:service_tasks:migrate_to_new_ruby RAILS_ENV=production**
+   If you use linux BitNami you must run
+     bundle install --without development test --binstubs --no-deployment
 
-7. Start your Redmine application server. E.g. under the application main directory run:  
-     **bundle exec ruby script/rails server -e production**
+5. Under the application main directory run (if you are using bitnami write 'sudo' before 'bundle'):
+     bundle exec rake easyproject:install RAILS_ENV=production
 
-8. You should create a maintanance task to CRON (on Linux) or Scheduled Tasks (on Windows) that
+6. If you are migrating from older version of Ruby < 1.9 (e.g. 1.8.7) to Ruby version >= 1.9 you have to run:
+     bundle exec rake easyproject:service_tasks:migrate_to_new_ruby RAILS_ENV=production
+
+7. Start your Redmine application server. E.g. under the application main directory run:
+     bundle exec ruby script/rails server -e production
+
+8. You should create a maintenance task to CRON (on Linux) or Scheduled Tasks (on Windows) that
    will be running every 5-15 minutes. This one task aggregates all required tasks such as mail receiving,
    alerts evaluation etc. You should set up required parameters via administration -> scheduled tasks.
    Do not run this task under root, use same user that is used for web server.:
-     **bundle exec rake easyproject:scheduler:run_tasks RAILS_ENV=production**
+     bundle exec rake easyproject:scheduler:run_tasks RAILS_ENV=production
+
+## Automatic installation
+
+1. Make sure you have gem 'redmine-installer'
+      gem install redmine-installer
+
+2. Download Easy Redmine and run:
+      redmine install [PATH_TO_PACKAGE]
+
+3. Follow installation steps:
+    * For example download Easy Redmine package to your home.
+    * Let's say your server root dir is in /srv/easyproject/public_html
+    FOR EXAMPLE
+    a) run: redmine install ~/easyredmine.zip
+    b) Choose: /srv/easyproject/public_html
+    c) Choose your database server, type database name, username and password
+    d) Choose your mailserver and type neccesary credentials
+    e) Wait for complete installation
+
+4. You should create a maintenance task to CRON (on Linux) or Scheduled Tasks (on Windows) that
+   will be running every 5-15 minutes. This one task aggregates all required tasks such as mail receiving,
+   alerts evaluation etc. You should set up required parameters via administration -> scheduled tasks.
+   Do not run this task under root, use same user that is used for web server.:
+     bundle exec rake easyproject:scheduler:run_tasks RAILS_ENV=production
 
 ## Notes
 
-Easy Redmine is tested only on MySQL server.
-
 ## References
 
-Changelog is on: http://www.easyredmine.com/news  
-Feaures are on: http://www.easyredmine.com/features  
-Support is on: http://www.easyredmine.com/support  
+News are on: http://www.easyredmine.com/news
+Support is on: http://www.easyredmine.com/support
