@@ -1,81 +1,70 @@
 # Easy Redmine
 
-Easy Redmine - plugin to Redmine (http://www.redmine.org)
-Copyright (C) 2008-2015  Easy Software, s.r.o.
-https://www.easyredmine.com
+**One software for your people, data and projects**
 
+Easy Redmine is the only EU-compliant software that breaks the barriers between your teams. Gain clarity & control across all your projects, support and software development.
 
-## Requirements
+## Key features
 
-Same as Redmine 3.0.3. See [redmine_root]/doc/INSTALL
-Only Ruby 1.9.3 and higher is supported. (Ruby version < 2.1 will be dropped soon)
+Easy Redmine's comprehensive capabilities include:
 
-## Manual installation
+-   [Gantt Charts](https://www.easyredmine.com/redmine-gantt-plugin) - a visual project management tool that displays a project's schedule, tasks, and dependencies over a timeline
+-   [Resource Management](https://www.easyredmine.com/product/resource-management) - allocate resources effectively across multiple projects
+-   [Risk Management](https://www.easyredmine.com/product/risk-management) - identify potential issues before they impact your projects
+-   [Helpdesk and IT service management](https://www.easyredmine.com/product/it-service-management) - manage customer support and maintain strict SLAs
+-   [Reporting](https://www.easyredmine.com/product/time-tracking-reporting) - gain visibility into project status, resource utilisation and financials
+-   [Knowledge Base](https://www.easyredmine.com/product/knowledge-base) - centralise information with an integrated wiki system (powered by Wikipedia engine)
+-   [B2B CRM](https://www.easyredmine.com/product/sales-crm) - manage B2B client relationships throughout the project lifecycle
+-   [WBS](https://www.easyredmine.com/redmine-wbs-plugin) - Work Breakdown Structure for detailed project planning and organization
+-   [Agile project management](https://www.easyredmine.com/product/agile-tools) - implement agile methodologies with specialized tools and workflows (Scrum Boards, Kanban Boards)
+-   [Time tracking](https://www.easyredmine.com/product/time-tracking-reporting) - track time spent on tasks and generate detailed reports
+-   [GitLab & GitHub integration](https://www.easyredmine.com/product/source-code-management) - seamlessly integrate with popular source code repositories
+-   [Easy AI](https://www.easyredmine.com/product/easy-ai) - the first on-premises AI for project management, deliver projects and tasks efficently without sacrificing security
+-   [Automations & AI agents (powered by n8n)](https://www.easyredmine.com/product/automations-ai-agents) - automating routine tasks, connecting tools, and keeping projects in motion so your people can focus on what truly matters.
+ 
 
-1. Make sure your Redmine 3.0.3. is working.
-   For more details visit http://www.redmine.org/projects/redmine/wiki/Installation_Guide.
+## Get started with Easy Redmine
 
-2. Backup your Redmine database and folder if something make wrong. Do not make backup into [redmine] directory! You have to copy it outside!
+-   **Free trial**: [Start a 30-day trial](https://www.easyredmine.com/) of Easy Redmine and experience the full suite of features.
+-   **Cloud solution**: 25+ sites across the world (including 10+ in the EU) for ideal mix of connectivity, performance and sovereignty.
+-   **On-premises deployment**: Install Easy Redmine on your own servers for maximum security and control. Perfect for organisations handling sensitive data and intellectual property. [Learn more about on-premises options](https://www.easyredmine.com/services/on-premises).
+-   **Documentation**: Explore our [comprehensive documentation](https://www.easyredmine.com/documentation-of-easy-redmine) to help you get up and running quickly.
 
-3. Extract zip package to the Redmine plugins directory ([redmine_root]/plugins).
-   The directory structure will look like:
-     [redmine_root]/plugins/easyproject/easy_helpers/*
-     [redmine_root]/plugins/easyproject/easy_plugins/easy_extensions/*
-     [redmine_root]/plugins/easyproject/easy_plugins/easy_redmine/*
-     [redmine_root]/plugins/easyproject/easy_plugins/*
+## Open source plugins
 
-4. More gems are required. Under the application main directory run:
-     bundle install --without development test
+As an open source available software, we offer several free plugins to enhance your Redmine experience:
 
-   If ImageMagick is not installed on your system, you should skip the installation
-   of the rmagick gem using:
-     bundle install --without development test rmagick
+-   [Redmine Gantt Chart plugin](https://www.easyredmine.com/redmine-gantt-plugin) - Visualise project timelines and dependencies
+-   [Redmien Work Breakdown Structure (WBS) plugin](https://www.easyredmine.com/redmine-wbs-plugin) - Create hierarchical project structures for better planning and execution  
+   Our plugins are compatible with standard Redmine installations and can be used independently of the full Easy Redmine suite.
 
-   If you use linux BitNami you must run
-     bundle install --without development test --binstubs --no-deployment
+## Community and support
 
-5. Under the application main directory run (if you are using bitnami write 'sudo' before 'bundle'):
-     bundle exec rake easyproject:install RAILS_ENV=production
+We value our community of users and developers. Here's how you can get involved:
 
-6. If you are migrating from older version of Ruby < 1.9 (e.g. 1.8.7) to Ruby version >= 1.9 you have to run:
-     bundle exec rake easyproject:service_tasks:migrate_to_new_ruby RAILS_ENV=production
+-   **Suggest features**: Have ideas for improvements? Share them on our [ideas portal](https://portal.productboard.com/easy/1-easy-software-portal/tabs/1-under-consideration/submit-idea).
+-   **Get support**: Need help? Visit our [support centre](https://www.easyredmine.com/services/support) or [contact our team](https://www.easyredmine.com/about/contacts).
 
-7. Start your Redmine application server. E.g. under the application main directory run:
-     bundle exec ruby script/rails server -e production
+## Stay connected
 
-8. You should create a maintenance task to CRON (on Linux) or Scheduled Tasks (on Windows) that
-   will be running every 5-15 minutes. This one task aggregates all required tasks such as mail receiving,
-   alerts evaluation etc. You should set up required parameters via administration -> scheduled tasks.
-   Do not run this task under root, use same user that is used for web server.:
-     bundle exec rake easyproject:scheduler:run_tasks RAILS_ENV=production
+Follow us to keep up with the latest updates and news:
 
-## Automatic installation
+-   [LinkedIn](https://www.linkedin.com/company/easy-software-ltd./)
+-   [Twitter/X](https://twitter.com/easyredmine)
+-   [YouTube](https://www.youtube.com/easyredmine)
+-   [Blog](https://www.easyredmine.com/blog)
 
-1. Make sure you have gem 'redmine-installer'
-      gem install redmine-installer
+## Security
 
-2. Download Easy Redmine and run:
-      redmine install [PATH_TO_PACKAGE]
+We take security seriously at Easy Redmine. If you discover a security vulnerability, please report it to us privately at [[security@easysoftware.com]](mailto:security@easysoftware.com) to allow us time to address it before public disclosure.
 
-3. Follow installation steps:
-    * For example download Easy Redmine package to your home.
-    * Let's say your server root dir is in /srv/easyproject/public_html
-    FOR EXAMPLE
-    a) run: redmine install ~/easyredmine.zip
-    b) Choose: /srv/easyproject/public_html
-    c) Choose your database server, type database name, username and password
-    d) Choose your mailserver and type neccesary credentials
-    e) Wait for complete installation
+## License
 
-4. You should create a maintenance task to CRON (on Linux) or Scheduled Tasks (on Windows) that
-   will be running every 5-15 minutes. This one task aggregates all required tasks such as mail receiving,
-   alerts evaluation etc. You should set up required parameters via administration -> scheduled tasks.
-   Do not run this task under root, use same user that is used for web server.:
-     bundle exec rake easyproject:scheduler:run_tasks RAILS_ENV=production
+Easy Redmine is built on open source technology and is available under a dual licensing model:
 
-## Notes
+-   The Redmine‑based core code is licensed under the **GNU General Public License version 2 (GPL v2)**.
+-   **Additional components**—such as images, CSS, JavaScript, the Easy AI module, and other non‑GPL elements—are provided under the **Easy Software Commercial License (ESCL).** See [https://www.easyredmine.com/about/license](https://www.easyredmine.com/about/license) file for details.
 
-## References
+## Easy Redmine for digital transformation
 
-News are on: http://www.easyredmine.com/news
-Support is on: http://www.easyredmine.com/support
+In today's fast-paced digital world, businesses need tools that can adapt to their evolving needs. Easy Redmine supports the full technology lifecycle—from planning to delivery to post-delivery service—helping teams protect intellectual property while meeting strict SLAs. Whether you're a technology service provider or managing technology projects within an enterprise, Easy Redmine provides the tools you need to redefine your approach to project management.
